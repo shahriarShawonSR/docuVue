@@ -21,6 +21,13 @@ class CreateAddProjectTitlesTable extends Migration
             ["enty_by", "enty by", "Integer", false, "", 0, 11, true],
             ["project_title_name", "Project Title Name", "TextField", false, "", 0, 256, true],
         ]);
+        // Schema::create('add_project_titles', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('project_title_name');
+        //     $table->integer('enty_by');
+        //     $table->string('deleted_at');
+        //     $table->timestamps();
+        // });
 		
 		/*
 		Row Format:

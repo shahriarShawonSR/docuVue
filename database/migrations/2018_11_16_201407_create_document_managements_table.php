@@ -20,6 +20,13 @@ class CreateDocumentManagementsTable extends Migration
         Module::generate("Document_managements", 'document_managements', 'ab', 'fa-cube', [
             ["ab", "ab", "Address", false, "", 0, 256, false],
         ]);
+        // Schema::create('document_managements', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('ab');
+        //     $table->string('fa-cube');
+        //     $table->string('deleted_at');
+        //     $table->timestamps();
+        // });
 		
 		/*
 		Row Format:

@@ -52,45 +52,45 @@ class UsersController extends Controller
 			return redirect(config('laraadmin.adminRoute') . "/");
 		}
 	}
-	// public function store(Request $request)
-	// {
-	// 	if (Module::hasAccess("Users", "create")) {
-	// 		$rules = Module::validateRules("Users", $request);
-	// 		$validator = Validator::make($request->all(), $rules);
-	// 		if ($validator->fails()) {
-	// 			return redirect()->back()->withErrors($validator)->withInput();
-	// 		}
-	// 		// generate password
-	// 		$password = LAHelper::gen_password();
-	// 		// Create Employee
-	// 		$employee_id = Module::insert("Users", $request);
-	// 		// Create User
-	// 		$user = User::create([
-	// 			'name' => $request->name,
-	// 			'email' => $request->email,
-	// 			'password' => bcrypt($password),
-	// 			'context_id' => $employee_id,
-	// 			'type' => "Employee",
-	// 		]);
-	// 		// update user role
-	// 		$user->detachRoles();
-	// 		$role = Role::find($request->role);
-	// 		$user->attachRole($role);
+	public function store(Request $request)
+	{
+		if (Module::hasAccess("Users", "create")) {
+			$rules = Module::validateRules("Users", $request);
+			$validator = Validator::make($request->all(), $rules);
+			if ($validator->fails()) {
+				return redirect()->back()->withErrors($validator)->withInput();
+			}
+			// generate password
+			$password = LAHelper::gen_password();
+			// Create Employee
+			$employee_id = Module::insert("Users", $request);
+			// Create User
+			$user = User::create([
+				'name' => $request->name,
+				'email' => $request->email,
+				'password' => bcrypt($password),
+				'context_id' => $employee_id,
+				'type' => "Employee",
+			]);
+			// update user role
+			$user->detachRoles();
+			$role = Role::find($request->role);
+			$user->attachRole($role);
 
-	// 		if (env('MAIL_USERNAME') != null && env('MAIL_USERNAME') != "null" && env('MAIL_USERNAME') != "") {
-	// 			// Send mail to User his Password
-	// 			Mail::send('emails.send_login_cred', ['user' => $user, 'password' => $password], function ($m) use ($user) {
-	// 				$m->from('hello@laraadmin.com', 'LaraAdmin');
-	// 				$m->to($user->email, $user->name)->subject('LaraAdmin - Your Login Credentials');
-	// 			});
-	// 		} else {
-	// 			Log::info("User created: username: " . $user->email . " Password: " . $password);
-	// 		}
-	// 		return redirect()->route(config('laraadmin.adminRoute') . '.users.index');
-	// 	} else {
-	// 		return redirect(config('laraadmin.adminRoute') . "/");
-	// 	}
-	// }
+			if (env('MAIL_USERNAME') != null && env('MAIL_USERNAME') != "null" && env('MAIL_USERNAME') != "") {
+				// Send mail to User his Password
+				Mail::send('emails.send_login_cred', ['user' => $user, 'password' => $password], function ($m) use ($user) {
+					$m->from('hello@laraadmin.com', 'LaraAdmin');
+					$m->to($user->email, $user->name)->subject('LaraAdmin - Your Login Credentials');
+				});
+			} else {
+				Log::info("User created: username: " . $user->email . " Password: " . $password);
+			}
+			return redirect()->route(config('laraadmin.adminRoute') . '.users.index');
+		} else {
+			return redirect(config('laraadmin.adminRoute') . "/");
+		}
+	}
 	public function show($id)
 	{
 		if (Module::hasAccess("Users", "view")) {

@@ -28,6 +28,20 @@ class CreateDocumentManagesTable extends Migration
             ["title", "title", "Dropdown", false, "", 0, 0, false, "@add_project_titles"],
             ["enty_by", "enty by", "Integer", false, "", 0, 11, true],
         ]);
+        // Schema::create('document_manages', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('sarok_no');
+        //     $table->string('deleted_at');
+        //     $table->string('project_title');
+        //     $table->string('others');
+        //     $table->string('project_sub_title');
+        //     $table->date('issue_date');
+        //     $table->string('image');
+        //     $table->integer('enty_by');
+        //     $table->longText('order_description');
+        //     $table->longText('TextField');
+        //     $table->timestamps();
+        // });
 		
 		/*
 		Row Format:

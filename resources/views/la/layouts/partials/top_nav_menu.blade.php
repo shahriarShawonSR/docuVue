@@ -5,6 +5,7 @@
 		<?php
 		$menuItems = Dwij\Laraadmin\Models\Menu::where("parent", 0)->orderBy('hierarchy', 'asc')->get();
 		?>
+		{{-- {{ dd($menuItems) }} --}}
 		@foreach ($menuItems as $menu)
 			@if($menu->type == "module")
 				<?php

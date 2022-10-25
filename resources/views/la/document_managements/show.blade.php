@@ -1,38 +1,38 @@
 @extends('la.layouts.app')
 
 @section('htmlheader_title')
-	Document Management View
+    Document Management View
 @endsection
 
 
 @section('main-content')
-<div id="page-content" class="profile2">
-	<div class="bg-primary clearfix">
-		<div class="col-md-4">
-			<div class="row">
-				<div class="col-md-3">
-					<!--<img class="profile-image" src="{{ asset('la-assets/img/avatar5.png') }}" alt="">-->
-					<div class="profile-icon text-primary"><i class="fa {{ $module->fa_icon }}"></i></div>
-				</div>
-				<div class="col-md-9">
-					<h4 class="name">{{ $document_management->$view_col }}</h4>
-					<div class="row stats">
-						<div class="col-md-4"><i class="fa fa-facebook"></i> 234</div>
+    <div id="page-content" class="profile2">
+        <div class="bg-primary clearfix">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-3">
+                        {{-- <img class="profile-image" src="{{ asset('la-assets/img/avatar5.png') }}" alt=""> --}}
+                        <div class="profile-icon text-primary"><i class="fa {{ $module->fa_icon }}"></i></div>
+                    </div>
+                    <div class="col-md-9">
+                        {{-- {{ dd($document_management) }} --}}
+                        <h4 class="name">{{ $document_management->$view_col }}</h4>
+                        <div class="row stats">
+                            {{-- <div class="col-md-4"><i class="fa fa-facebook"></i> 234</div>
 						<div class="col-md-4"><i class="fa fa-twitter"></i> 12</div>
-						<div class="col-md-4"><i class="fa fa-instagram"></i> 89</div>
-					</div>
-					<p class="desc">Test Description in one line</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="dats1"><div class="label2">Admin</div></div>
-			<div class="dats1"><i class="fa fa-envelope-o"></i> superadmin@gmail.com</div>
-			<div class="dats1"><i class="fa fa-map-marker"></i> Pune, India</div>
-		</div>
-		<div class="col-md-4">
-			<!--
-			<div class="teamview">
+						<div class="col-md-4"><i class="fa fa-instagram"></i> 89</div> --}}
+                        </div>
+                        {{-- <p class="desc">Test Description in one line</p> --}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                {{-- <div class="dats1"><i class="fa fa-envelope-o"></i> superadmin@gmail.com</div>
+			<div class="dats1"><i class="fa fa-map-marker"></i>Dhaka, Bangladesh</div> --}}
+            </div>
+            <div class="col-md-4">
+
+                {{-- <div class="teamview">
 				<a class="face" data-toggle="tooltip" data-placement="top" title="John Doe"><img src="{{ asset('la-assets/img/user1-128x128.jpg') }}" alt=""><i class="status-online"></i></a>
 				<a class="face" data-toggle="tooltip" data-placement="top" title="John Doe"><img src="{{ asset('la-assets/img/user2-160x160.jpg') }}" alt=""></a>
 				<a class="face" data-toggle="tooltip" data-placement="top" title="John Doe"><img src="{{ asset('la-assets/img/user3-128x128.jpg') }}" alt=""></a>
@@ -44,9 +44,9 @@
 				<a class="face" data-toggle="tooltip" data-placement="top" title="John Doe"><img src="{{ asset('la-assets/img/user5-128x128.jpg') }}" alt=""></a>
 				<a class="face" data-toggle="tooltip" data-placement="top" title="John Doe"><img src="{{ asset('la-assets/img/user6-128x128.jpg') }}" alt=""><i class="status-online"></i></a>
 				<a class="face" data-toggle="tooltip" data-placement="top" title="John Doe"><img src="{{ asset('la-assets/img/user7-128x128.jpg') }}" alt=""></a>
-			</div>
-			-->
-			<div class="dats1 pb">
+			</div> --}}
+
+                {{-- <div class="dats1 pb">
 				<div class="clearfix">
 					<span class="pull-left">Task #1</span>
 					<small class="pull-right">20%</small>
@@ -78,50 +78,71 @@
 						<span class="sr-only">60% Complete</span>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="col-md-1 actions">
-			@la_access("Document_Managements", "edit")
-				<a href="{{ url(config('laraadmin.adminRoute') . '/document_managements/'.$document_management->id.'/edit') }}" class="btn btn-xs btn-edit btn-default"><i class="fa fa-pencil"></i></a><br>
-			@endla_access
-			
-			@la_access("Document_Managements", "delete")
-				{{ Form::open(['route' => [config('laraadmin.adminRoute') . '.document_managements.destroy', $document_management->id], 'method' => 'delete', 'style'=>'display:inline']) }}
-					<button class="btn btn-default btn-delete btn-xs" type="submit"><i class="fa fa-times"></i></button>
-				{{ Form::close() }}
-			@endla_access
-		</div>
-	</div>
+			</div> --}}
+            </div>
+            {{-- <div class="col-md-1 actions">
+                @la_access('Document_Managements', 'edit')
+                    <a href="{{ url(config('laraadmin.adminRoute') . '/document_managements/' . $document_management->id . '/edit') }}"
+                        class="btn btn-xs btn-edit btn-default"><i class="fa fa-pencil"></i></a><br>
+                @endla_access
 
-	<ul data-toggle="ajax-tab" class="nav nav-tabs profile" role="tablist">
-		<li class=""><a href="{{ url(config('laraadmin.adminRoute') . '/document_managements') }}" data-toggle="tooltip" data-placement="right" title="Back to Document Managements"><i class="fa fa-chevron-left"></i></a></li>
-		<li class="active"><a role="tab" data-toggle="tab" class="active" href="#tab-general-info" data-target="#tab-info"><i class="fa fa-bars"></i> General Info</a></li>
-		<li class=""><a role="tab" data-toggle="tab" href="#tab-timeline" data-target="#tab-timeline"><i class="fa fa-clock-o"></i> Timeline</a></li>
-	</ul>
+                @la_access('Document_Managements', 'delete')
+                    {{ Form::open(['route' => [config('laraadmin.adminRoute') . '.document_managements.destroy', $document_management->id], 'method' => 'delete', 'style' => 'display:inline']) }}
+                    <button class="btn btn-default btn-delete btn-xs" type="submit"><i class="fa fa-times"></i></button>
+                    {{ Form::close() }}
+                @endla_access
+            </div> --}}
+        </div>
 
-	<div class="tab-content">
-		<div role="tabpanel" class="tab-pane active fade in" id="tab-info">
-			<div class="tab-content">
-				<div class="panel infolist">
-					<div class="panel-default panel-heading">
-						<h4>General Info</h4>
-					</div>
-					<div class="panel-body">
-						<!-- @la_display($module, 'ab') -->
-							@la_input($module, 'sarok_no')
-						@la_input($module, 'project_title')
-						@la_input($module, 'others')
-						@la_input($module, 'project_sub_title')
-						@la_input($module, 'issue_date')
-						@la_input($module, 'image')
-						@la_input($module, 'order_description')
-						@la_input($module, 'title')
-						@la_input($module, 'enty_by')
-					</div>
-				</div>
-			</div>
-		</div>
-		<div role="tabpanel" class="tab-pane fade in p20 bg-white" id="tab-timeline">
+        <ul data-toggle="ajax-tab" class="nav nav-tabs profile" role="tablist">
+            <li class=""><a href="{{ url(config('laraadmin.adminRoute') . '/document_managements') }}"
+                    data-toggle="tooltip" data-placement="right" title="Back to Document Managements"><i
+                        class="fa fa-chevron-left"></i></a></li>
+            <li class="active"><a role="tab" data-toggle="tab" class="active" href="#tab-general-info"
+                    data-target="#tab-info"><i class="fa fa-bars"></i> General Info</a></li>
+            {{-- <li class=""><a role="tab" data-toggle="tab" href="#tab-timeline" data-target="#tab-timeline"><i class="fa fa-clock-o"></i> Timeline</a></li> --}}
+        </ul>
+
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active fade in" id="tab-info">
+                <div class="tab-content">
+                    <div class="panel infolist">
+                        <div class="panel-default panel-heading">
+                            <h4>General Info</h4>
+                        </div>
+                        <div class="panel-body">
+                            {{-- {{ dd($module) }} --}}
+                            <table id="example1" class="table table-bordered">
+                                <thead>
+                                    <tr class="success">
+                                        <th>User ID</th>
+                                        <th>User Name</th>
+                                        <th>Actions</th>
+										<th></th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{ $module->row['id'] }}</td>
+                                        <td>{{ $module->row['ab'] }}</td>
+                                        <td>
+											<div style="float: left !importent;">
+												<a href="{{ url(config('laraadmin.adminRoute') . '/document_managements/' . $document_management->id . '/edit') }}"
+													class="btn btn-xs btn-edit btn-default"><i class="fa fa-pencil"></i></a><br>
+	
+	
+												{{ Form::open(['route' => [config('laraadmin.adminRoute') . '.document_managements.destroy', $document_management->id], 'method' => 'delete']) }}
+	
+												<button class="btn btn-default btn-delete btn-xs" type="submit"><i class="fa fa-times"></i></button>
+												{{ Form::close() }}
+											</div>
+										</td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- <div role="tabpanel" class="tab-pane fade in p20 bg-white" id="tab-timeline">
 			<ul class="timeline timeline-inverse">
 				<!-- timeline time label -->
 				<li class="time-label">
@@ -214,10 +235,10 @@
 				</li>
 			</ul>
 			<!--<div class="text-center p30"><i class="fa fa-list-alt" style="font-size: 100px;"></i> <br> No posts to show</div>-->
-		</div>
-		
-	</div>
-	</div>
-	</div>
-</div>
+		</div> --}}
+
+        </div>
+    </div>
+    </div>
+    </div>
 @endsection

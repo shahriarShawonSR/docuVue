@@ -20,6 +20,12 @@ class CreateSettingsTable extends Migration
         Module::generate("Settings", 'settings', 'name', 'fa-cogs', [
             ["name", "name ", "Address", false, "", 0, 256, false],
         ]);
+        // Schema::create('settings', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('name');
+        //     $table->string('deleted_at');
+        //     $table->timestamps();
+        // });
 		
 		/*
 		Row Format:

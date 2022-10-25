@@ -1,23 +1,24 @@
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
-
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-
         <!-- Sidebar user panel (optional) -->
         @if (! Auth::guest())
             <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="{{ Gravatar::fallback(asset('la-assets/img/user2-160x160.jpg'))->get(Auth::user()->email) }}" class="img-circle" alt="User Image" />
+                {{-- <div class="pull-left image">
+                    <img src="{{ Gravatar::fallback(asset('la-assets/img/ict_logo.jpg'))->get(Auth::user()->email) }}" class="img-circle" alt="User Image" />
+                </div> --}}
+                <div class="pull-left ">
+                    {{-- <img src="{{ Gravatar::fallback(asset('la-assets/img/ict_logo.jpg')) }}" class="img-circle" alt="User Image" /> --}}
+                    <img src="{{ asset('la-assets/img/ict_logo.png') }}" class="logo" height="40px" width="50px" alt="User Image"/>
                 </div>
                 <div class="pull-left info">
-                    <p>{{ Auth::user()->name }}</p>
+                    <p style="font-size:18px;">{{ Auth::user()->name }}</p>
                     <!-- Status -->
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    {{-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> --}}
                 </div>
             </div>
         @endif
-
         <!-- search form (Optional) -->
         @if(LAConfigs::getByKey('sidebar_search'))
         <form action="#" method="get" class="sidebar-form">

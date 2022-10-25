@@ -140,7 +140,7 @@
 								<tr>
 									<th>Document Description :  &nbsp;&nbsp;&nbsp;{{ $module->row['order_description'] }}</th>
 								</tr> --}}
-								<tr>
+								<tr class="success">
 									<th>Memo No</th>
 									<th>Document Title</th>
 									<th>Document Sub-Title</th>
@@ -151,14 +151,14 @@
 									<th>Document Description</th>
 								</tr>
 								<tr>
-									<th>{{ $module->row['sarok_no'] }}</th>
-									<th>{{ $module->row['project_title'] }}</th>
-									<th>{{ $module->row['others'] }}</th>
-									<th>{{ $module->row['project_sub_title'] }}</th>
-									<th>{{ $module->row['project_sub_title'] }}</th>
-									<th>{{ $module->row['issue_date'] }}</th>
-									<th>{{ $module->row['image'] }}</th>
-									<th>{{ $module->row['order_description'] }}</th>
+									<td>{{ $module->row['sarok_no'] }}</td>
+									<td>{{ $module->row['project_title'] }}</td>
+									<td>{{ $module->row['others'] }}</td>
+									<td>{{ $module->row['project_sub_title'] }}</td>
+									<td>{{ $module->row['project_sub_title'] }}</td>
+									<td>{{ $module->row['issue_date'] }}</td>
+									<td>{{ $module->row['image'] }}</td>
+									<td>{{ $module->row['order_description'] }}</td>
 								</tr>
 							</thead>
 						</table>

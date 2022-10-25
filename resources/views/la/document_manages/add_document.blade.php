@@ -10,11 +10,10 @@
 			{!! Form::open(['action' => 'LA\Document_ManagesController@store', 'id' => 'document_manage-add-form']) !!}
         <div class="panel panel-default" charset="UTF-8">
             <div class="panel-heading">
-                <strong>Action Order Info</strong>
+                <strong>Document Manage Info</strong>
             </div>
             <div class="panel-body">
-                <h4 class="text-success">
-                                    </h4>  
+                <h4 class="text-success"></h4>  
 
                 <div class="form-group row" charset="UTF-8">                    
                     <div class="col-md-12">
@@ -102,12 +101,5 @@
         </div>
 			{!! Form::close() !!}
 </section>
-
-
-
-		
-	<!-- /div>
-	</div>
-	</div> -->
 </div>
 @endsection
