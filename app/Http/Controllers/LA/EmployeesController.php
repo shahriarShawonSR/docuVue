@@ -20,6 +20,7 @@ use App\Models\Employee;
 use App\Role;
 use Mail;
 use Log;
+use Dwij\Laraadmin\Models\LAConfigs;
 
 class EmployeesController extends Controller
 {
